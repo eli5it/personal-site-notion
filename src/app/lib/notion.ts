@@ -13,7 +13,7 @@ export async function getPageContent(pageId: string) {
   return recordMap;
 }
 
-export async function getBlogPosts(): Promise<BlogEntry[]> {
+export async function getAllBlogPosts(): Promise<BlogEntry[]> {
   // returns all blog post
   const databaseId = process.env.DATABASE_ID!;
   let cursor: string | undefined = undefined;
@@ -25,6 +25,42 @@ export async function getBlogPosts(): Promise<BlogEntry[]> {
     });
     pages.push(...res.results);
   } while (cursor);
+  const publishedPosts = pages.filter(
+    //@ts-ignore
+    (page) => page?.properties?.Published?.checkbox
+  );
+  const postObjects = publishedPosts.map((post) => {
+    //@ts-ignore
+    const tags = post?.properties?.Tag?.multi_select.map(
+      //@ts-ignore
+      (item) => item?.name
+    );
+    return {
+      id: post.id,
+      //@ts-ignore
+      createdTime: post?.created_time,
+      //@ts-ignore
+      category: post?.properties?.Category?.select?.name,
+      //@ts-ignore
+      title: post?.properties?.Name?.title[0]?.plain_text,
+      tags,
+    };
+  });
+
+  return postObjects;
+}
+
+export async function getBlogPosts(
+  cursor: string | undefined = undefined
+): Promise<BlogEntry[]> {
+  const databaseId = process.env.DATABASE_ID!;
+  const pages = [];
+  const res = await notionClient.databases.query({
+    database_id: databaseId,
+    start_cursor: cursor,
+  });
+  pages.push(...res.results);
+
   const publishedPosts = pages.filter(
     //@ts-ignore
     (page) => page?.properties?.Published?.checkbox

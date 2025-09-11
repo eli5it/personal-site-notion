@@ -62,9 +62,9 @@ function NavBar() {
             </Link>
             <Link
               className="hover:bg-light-primary dark:hover:bg-dark-border px-4 py-2 rounded-xl"
-              href={"/lists"}
+              href={"/projects"}
             >
-              Lists
+              Projects
             </Link>
           </nav>
           <button

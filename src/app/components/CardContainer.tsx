@@ -15,11 +15,8 @@ function BlogCard({ post }: BlogCardProps) {
 }
 
 async function CardContainer() {
-  const blogPosts = await getBlogPosts();
-  const blogs = [];
-  for (let i = 0; i < 10; i++) {
-    blogs.push({ ...blogPosts[0] });
-  }
+  const blogs = await getBlogPosts();
+
   return (
     <ul className="w-full py-8 flex flex-col gap-4 relative overflow-hidden">
       {blogs.map((post) => (

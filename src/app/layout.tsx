@@ -1,12 +1,9 @@
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
-// core react-notion styles
 import "react-notion-x/src/styles.css";
-import "prismjs/themes/prism-tomorrow.css"; // Example prism theme for code blocks
+import "prismjs/themes/prism-tomorrow.css";
 import NavBar from "./components/NavBar";
 import Link from "next/link";
-
-// code syntax highlighting styles
 
 export default function RootLayout({
   children,
@@ -15,10 +12,10 @@ export default function RootLayout({
 }>) {
   return (
     <html suppressHydrationWarning lang="en">
-      <body className="min-h-screen bg-light-primary dark:bg-dark-primary px-6">
+      <body className="min-h-screen bg-light-primary dark:bg-dark-primary">
         <ThemeProvider>
           <NavBar />
-          <div className="max-w-[672px] m-auto">
+          <div className="max-w-[672px] m-auto py-16 px-6">
             {children}
             <footer className="hidden md:flex justify-center">
               <div className="w-full max-w-[672px] flex justify-between px-20 py-6 text-sm text-gray-text ">
