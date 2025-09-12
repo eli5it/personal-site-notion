@@ -16,6 +16,10 @@
   --color-gray-text: #687076;
   --color-dark-green: #17624a;
   --color-light-green: #7ed6a2;
+  --color-lighter-green: #c6f6d5;
+  --color-text-green: rgb(34, 84, 61);
+  --color-pinkish-red: #fed7d7;
+  --color-red-text: rgb(130, 39, 39);
 }
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
