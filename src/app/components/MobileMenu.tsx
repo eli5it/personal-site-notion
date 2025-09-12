@@ -33,7 +33,7 @@ function MobileMenu({ hide }: MobileMenuProps) {
             </Link>
           </li>
           <li className="bg-light-primary dark:bg-dark-secondary rounded-lg hover:bg-dark-text dark:hover:bg-dark-border">
-            <Link className="w-full h-full block py-2" href={"/"}>
+            <Link className="w-full h-full block py-2" href={"/about"}>
               About
             </Link>
           </li>
@@ -43,19 +43,8 @@ function MobileMenu({ hide }: MobileMenuProps) {
             </Link>
           </li>
           <li className="bg-light-primary dark:bg-dark-secondary rounded-lg hover:bg-dark-text dark:hover:bg-dark-border">
-            <Link className="w-full h-full block py-2" href={"/"}>
-              {" "}
-              Bookmarks
-            </Link>
-          </li>
-          <li className="bg-light-primary dark:bg-dark-secondary rounded-lg hover:bg-dark-text dark:hover:bg-dark-border">
-            <Link className="w-full h-full block py-2" href={"/"}>
-              Books
-            </Link>
-          </li>
-          <li className="bg-light-primary dark:bg-dark-secondary rounded-lg hover:bg-dark-text dark:hover:bg-dark-border">
-            <Link className="w-full h-full block py-2" href={"/"}>
-              Tools
+            <Link className="w-full h-full block py-2" href={"/projects"}>
+              Projects
             </Link>
           </li>
         </ul>

@@ -25,12 +25,16 @@ function NavBar() {
       <div className="fixed bottom-0  w-[100%] py-2 bg-white dark:bg-dark-secondary border-t border-gray-300 dark:border-dark-border dark:text-dark-text md:hidden z-10">
         <ul className="text-xs w-full flex justify-around py-2">
           <li className="flex flex-col items-center gap-1">
-            <Pencil className="mx-0.5 " />
-            <Link href={"/blog"}>Blog</Link>
+            <Link href={"/blog"}>
+              <Pencil className="mx-0.5 mb-1" />
+              <span>Blog</span>
+            </Link>
           </li>
           <li className="flex flex-col items-center gap-1">
-            <Menu onClick={() => setMobileMenuOpen(true)} />
-            <button>Menu</button>
+            <button onClick={() => setMobileMenuOpen(true)}>
+              <Menu className="ml-0.5" />
+              <span>Menu</span>
+            </button>
           </li>
           <li>
             <button
@@ -46,7 +50,7 @@ function NavBar() {
       </div>
       <div className="justify-center w-full bg-white dark:bg-dark-secondary border-b border-light-border dark:border-dark-border hidden md:flex">
         <header className="sticky top-0 h-16 flex items-center justify-around w-full max-w-[650px]">
-          <div className="rounded-full h-8 w-8 bg-gray-300"></div>
+          <Link href={"/"} className="rounded-full h-8 w-8 bg-gray-300"></Link>
           <nav>
             <Link
               className="hover:bg-light-primary dark:hover:bg-dark-border  px-4 py-2 rounded-xl"

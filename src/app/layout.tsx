@@ -15,19 +15,17 @@ export default function RootLayout({
       <body className="min-h-screen bg-light-primary dark:bg-dark-primary">
         <ThemeProvider>
           <NavBar />
-          <div className="max-w-[672px] m-auto py-16 px-6">
-            {children}
-            <footer className="hidden md:flex justify-center">
-              <div className="w-full max-w-[672px] flex justify-between px-20 py-6 text-sm text-gray-text ">
-                <Link className="hover:text-dark-border" href={"/"}>
-                  Contact
-                </Link>
-                <Link className="hover:text-dark-border" href={"/"}>
-                  Repository
-                </Link>
-              </div>
-            </footer>
-          </div>
+          <div className="max-w-[672px] m-auto py-16 px-6">{children}</div>
+          <footer className="hidden md:flex justify-center">
+            <div className="w-full max-w-[672px] flex justify-between px-20 mb-8 text-sm text-gray-text ">
+              <Link className="hover:text-dark-border" href={"/"}>
+                Contact
+              </Link>
+              <Link className="hover:text-dark-border" href={"/"}>
+                Repository
+              </Link>
+            </div>
+          </footer>
         </ThemeProvider>
       </body>
     </html>

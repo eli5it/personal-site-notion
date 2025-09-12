@@ -16,14 +16,15 @@ export async function getPageContent(pageId: string) {
 export async function getAllBlogPosts(): Promise<BlogEntry[]> {
   // returns all blog post
   const databaseId = process.env.DATABASE_ID!;
-  let cursor: string | undefined = undefined;
+  let cursor: string | null = null;
   const pages = [];
   do {
     const res = await notionClient.databases.query({
       database_id: databaseId,
-      start_cursor: cursor,
+      start_cursor: cursor ?? undefined,
     });
     pages.push(...res.results);
+    cursor = res.next_cursor;
   } while (cursor);
   const publishedPosts = pages.filter(
     //@ts-ignore
@@ -50,14 +51,19 @@ export async function getAllBlogPosts(): Promise<BlogEntry[]> {
   return postObjects;
 }
 
+type GetBlogPostsReturn = {
+  posts: BlogEntry[];
+  cursor: null | string;
+};
+
 export async function getBlogPosts(
-  cursor: string | undefined = undefined
-): Promise<BlogEntry[]> {
+  cursor: string | undefined | null = undefined
+): Promise<GetBlogPostsReturn> {
   const databaseId = process.env.DATABASE_ID!;
   const pages = [];
   const res = await notionClient.databases.query({
     database_id: databaseId,
-    start_cursor: cursor,
+    start_cursor: cursor ?? undefined,
   });
   pages.push(...res.results);
 
@@ -82,6 +88,10 @@ export async function getBlogPosts(
       tags,
     };
   });
+  cursor = res.next_cursor;
 
-  return postObjects;
+  return {
+    posts: postObjects,
+    cursor,
+  };
 }
