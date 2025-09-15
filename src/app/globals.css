@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+:root {
+  --color-python: #346f9f;
+  --color-node: #7ed6a2;
+  --color-tailwind: #f060ae;
+  --color-flask: #3b808b;
+  --color-sql: #df6c20;
+  --color-react: #86d9ca;
+}
+
 @theme {
   --color-dark-secondary: #1a1d1e;
   --color-dark-primary: #151718;
@@ -20,6 +29,11 @@
   --color-text-green: rgb(34, 84, 61);
   --color-pinkish-red: #fed7d7;
   --color-red-text: rgb(130, 39, 39);
+  --color-translucent-green: rgb(154, 230, 180);
+  --color-dark-green-bg: rgba(154, 230, 180, 0.16);
+  --color-dark-red-text: rgb(254, 178, 178);
+  --color-yellow: #ffe066;
+  --color-dark-red-bg: rgba(254, 178, 178, 0.16);
 }
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
