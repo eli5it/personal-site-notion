@@ -5,11 +5,12 @@ import { Client } from "@notionhq/client";
 import { BlogEntry } from "./types";
 
 const unofficialNotionAPI = new NotionAPI();
-
 const notionClient = new Client({ auth: process.env.NOTION_API_KEY });
 
+const compatNotionAPI = new NotionCompatAPI(notionClient);
+
 export async function getPageContent(pageId: string) {
-  const recordMap = await unofficialNotionAPI.getPage(pageId);
+  const recordMap = await compatNotionAPI.getPage(pageId);
   return recordMap;
 }
 

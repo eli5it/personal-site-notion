@@ -15,6 +15,9 @@ export async function generateStaticParams() {
 // ensures that posts created after build time can still be reached
 export const dynamicParams = true;
 
+// revalidate page once a day
+export const revalidate = 60 * 60 * 24;
+
 export default async function Page({
   params,
 }: {
@@ -34,7 +37,6 @@ export default async function Page({
 
     postTimeString = `${formatDistanceToNow(postDate)} ago`;
   } catch (err) {
-    console.log(err);
     notFound();
   }
 
