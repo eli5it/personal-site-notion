@@ -1,7 +1,6 @@
 "use client";
 import { NotionRenderer } from "react-notion-x";
 import { ExtendedRecordMap } from "notion-types";
-import { getPageTitle } from "notion-utils";
 import { useTheme } from "next-themes";
 import dynamic from "next/dynamic";
 import "prismjs";
@@ -49,7 +48,7 @@ type NotionClientProps = {
   recordMap: ExtendedRecordMap;
 };
 const NotionRendererComponent = ({ recordMap }: NotionClientProps) => {
-  const { resolvedTheme, setTheme } = useTheme();
+  const { resolvedTheme } = useTheme();
 
   return (
     <>

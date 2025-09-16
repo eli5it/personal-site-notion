@@ -26,7 +26,7 @@ function InfiniteCardsFetcher({
         return lastPage.cursor;
       },
     });
-  const { ref, inView, entry } = useInView();
+  const { ref, inView } = useInView();
 
   useEffect(() => {
     if (inView && hasNextPage && !isFetchingNextPage) {

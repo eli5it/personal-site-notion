@@ -1,4 +1,3 @@
-import { getBlogPosts } from "../lib/notion";
 import { BlogEntry } from "../lib/types";
 import Link from "next/link";
 import { formatDistanceToNow } from "date-fns";

@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { Moon, Sun, Menu, Pencil } from "lucide-react";
 import MobileMenu from "./MobileMenu";
-import { cn } from "../lib/utils";
 
 function NavBar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

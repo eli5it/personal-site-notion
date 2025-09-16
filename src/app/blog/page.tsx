@@ -1,8 +1,7 @@
-import CardContainer from "../components/CardContainer";
 import InfiniteCardsFetcher from "../components/InfiniteCardsFetcher";
 import { getBlogPosts } from "../lib/notion";
 
-export async function Page() {
+async function Page() {
   const { posts, cursor } = await getBlogPosts();
   return (
     <main className="flex justify-center">

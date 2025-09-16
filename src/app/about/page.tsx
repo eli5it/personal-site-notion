@@ -35,8 +35,8 @@ export default function Page() {
           Learn more about me
         </p>
         <p className="my-7 text-lg text-dark-border dark:text-offwhite">
-          I'm an all-around curious person who can't get enough of exploring new
-          ideas and asking lots of questions.
+          I am an all-around curious person who can not get enough of exploring
+          new ideas and asking lots of questions.
         </p>
         <p className="my-7 text-lg text-dark-border dark:text-offwhite">
           In my free time, you can usually find me reading books, cooking,
@@ -44,8 +44,8 @@ export default function Page() {
           with those closest to me.
         </p>
         <p className="my-7 text-lg text-dark-border dark:text-offwhite">
-          I'm an advocate for working and learning in public, which I'm doing on
-          and off on on LinkedIn, X, Bluesky and my YouTube channel.
+          I am an advocate for working and learning in public, which I am doing
+          on and off on on LinkedIn, X, Bluesky and my YouTube channel.
         </p>
       </section>
 

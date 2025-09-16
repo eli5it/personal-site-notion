@@ -16,7 +16,7 @@ export async function generateStaticParams() {
 export const dynamicParams = true;
 
 // revalidate page once a day
-export const revalidate = 60 * 60 * 24;
+export const revalidate = 86400;
 
 export default async function Page({
   params,
@@ -37,6 +37,7 @@ export default async function Page({
 
     postTimeString = `${formatDistanceToNow(postDate)} ago`;
   } catch (err) {
+    console.error(err);
     notFound();
   }
 

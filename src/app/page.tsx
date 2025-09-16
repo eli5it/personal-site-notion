@@ -19,7 +19,7 @@ export default async function Home() {
           </Link>
         </div>
         <p className="py-8 text-2xl dark:text-off-white font-extralight">
-          I'm Elijah. I am a passionate software developer always looking to
+          I am Elijah. I am a passionate software developer always looking to
           learn and grow. I like to read books, save bookmarks and to
           occasionally write articles.
         </p>

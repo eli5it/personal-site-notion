@@ -1,10 +1,8 @@
 "use server";
 import { NotionCompatAPI } from "notion-compat";
-import { NotionAPI } from "notion-client";
 import { Client } from "@notionhq/client";
 import { BlogEntry } from "./types";
 
-const unofficialNotionAPI = new NotionAPI();
 const notionClient = new Client({ auth: process.env.NOTION_API_KEY });
 
 const compatNotionAPI = new NotionCompatAPI(notionClient);
@@ -28,22 +26,22 @@ export async function getAllBlogPosts(): Promise<BlogEntry[]> {
     cursor = res.next_cursor;
   } while (cursor);
   const publishedPosts = pages.filter(
-    //@ts-ignore
+    //@ts-expect-error - TODO: Type the Notion API response properly
     (page) => page?.properties?.Published?.checkbox
   );
   const postObjects = publishedPosts.map((post) => {
-    //@ts-ignore
+    //@ts-expect-error - TODO: Type the Notion API response properly
     const tags = post?.properties?.Tag?.multi_select.map(
-      //@ts-ignore
+      //@ts-expect-error - TODO: Type the Notion API response properly
       (item) => item?.name
     );
     return {
       id: post.id,
-      //@ts-ignore
+      //@ts-expect-error - TODO: Type the Notion API response properly
       createdTime: post?.created_time,
-      //@ts-ignore
+      //@ts-expect-error - TODO: Type the Notion API response properly
       category: post?.properties?.Category?.select?.name,
-      //@ts-ignore
+      //@ts-expect-error - TODO: Type the Notion API response properly
       title: post?.properties?.Name?.title[0]?.plain_text,
       tags,
     };
@@ -70,22 +68,22 @@ export async function getBlogPosts(
   pages.push(...res.results);
 
   const publishedPosts = pages.filter(
-    //@ts-ignore
+    //@ts-expect-error - TODO: Type the Notion API response properly
     (page) => page?.properties?.Published?.checkbox
   );
   const postObjects = publishedPosts.map((post) => {
-    //@ts-ignore
+    //@ts-expect-error - TODO: Type the Notion API response properly
     const tags = post?.properties?.Tag?.multi_select.map(
-      //@ts-ignore
+      //@ts-expect-error - TODO: Type the Notion API response properly
       (item) => item?.name
     );
     return {
       id: post.id,
-      //@ts-ignore
+      //@ts-expect-error - TODO: Type the Notion API response properly
       createdTime: post?.created_time,
-      //@ts-ignore
+      //@ts-expect-error - TODO: Type the Notion API response properly
       category: post?.properties?.Category?.select?.name,
-      //@ts-ignore
+      //@ts-expect-error - TODO: Type the Notion API response properly
       title: post?.properties?.Name?.title[0]?.plain_text,
       tags,
     };
