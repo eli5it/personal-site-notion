@@ -13,7 +13,7 @@ export async function Page() {
         <p className="text-center text-xl max-w-[512px] text-gray-text">
           Helpful tools, thoughtful articles and other findings from the web.
         </p>
-        <InfiniteCardsFetcher initialPosts={posts} />
+        <InfiniteCardsFetcher cursor={cursor} initialPosts={posts} />
       </div>
     </main>
   );

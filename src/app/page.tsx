@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import CardContainer from "./components/CardContainer";
+import { getBlogPosts } from "./lib/notion";
 
 export default async function Home() {
+  const { posts } = await getBlogPosts();
   return (
     <>
       <section>
@@ -32,7 +34,7 @@ export default async function Home() {
             <ArrowUpRight></ArrowUpRight>
           </Link>
         </div>
-        <CardContainer />
+        <CardContainer posts={posts} />
       </section>
     </>
   );
