@@ -4,6 +4,8 @@ import { BlogEntry } from "../lib/types";
 import CardContainer from "./CardContainer";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { getBlogPosts } from "../lib/notion";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
 
 type InfiniteCardsFetcherProps = {
   initialPosts: BlogEntry[];
@@ -13,39 +15,34 @@ function InfiniteCardsFetcher({
   initialPosts,
   cursor,
 }: InfiniteCardsFetcherProps) {
-  const {
-    data,
-    error,
-    fetchNextPage,
-    hasNextPage,
-    isFetching,
-    isFetchingNextPage,
-    status,
-  } = useInfiniteQuery({
-    queryKey: ["blogs"],
-    queryFn: ({ pageParam }) => getBlogPosts(pageParam),
-    initialPageParam: cursor,
-    getNextPageParam: (lastPage) => lastPage.cursor,
-  });
+  const { data, fetchNextPage, hasNextPage, isFetchingNextPage } =
+    useInfiniteQuery({
+      queryKey: ["blogs"],
+      queryFn: async ({ pageParam }) => {
+        return await getBlogPosts(pageParam);
+      },
+      initialPageParam: cursor,
+      getNextPageParam: (lastPage) => {
+        return lastPage.cursor;
+      },
+    });
+  const { ref, inView, entry } = useInView();
 
-  console.log(data);
+  useEffect(() => {
+    if (inView && hasNextPage && !isFetchingNextPage) {
+      fetchNextPage();
+    }
+  }, [inView, hasNextPage, isFetchingNextPage, fetchNextPage]);
+
+  const fetchedPosts = data?.pages.flatMap((page) => page.posts) ?? [];
+
+  const allPosts = initialPosts.concat(fetchedPosts);
 
   return (
     <>
-      <CardContainer posts={initialPosts}></CardContainer>
-      <div>
-        <button
-          onClick={() => fetchNextPage()}
-          disabled={!hasNextPage || isFetching}
-        >
-          {isFetchingNextPage
-            ? "Loading more..."
-            : hasNextPage
-            ? "Load More"
-            : "Nothing more to load"}
-        </button>
-      </div>
-      <div>{isFetching && !isFetchingNextPage ? "Fetching..." : null}</div>
+      <CardContainer posts={allPosts}></CardContainer>
+
+      <div ref={ref}></div>
     </>
   );
 }

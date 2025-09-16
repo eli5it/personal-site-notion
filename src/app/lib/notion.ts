@@ -64,6 +64,7 @@ export async function getBlogPosts(
   const res = await notionClient.databases.query({
     database_id: databaseId,
     start_cursor: cursor ?? undefined,
+    page_size: 5,
   });
   pages.push(...res.results);
 

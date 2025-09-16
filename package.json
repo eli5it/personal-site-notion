@@ -19,6 +19,7 @@
     "notion-types": "^7.4.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-intersection-observer": "^9.16.0",
     "react-notion-x": "^7.4.2",
     "tailwind-merge": "^3.3.1"
   },
