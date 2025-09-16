@@ -1,6 +1,8 @@
 import InfiniteCardsFetcher from "../components/InfiniteCardsFetcher";
 import { getBlogPosts } from "../lib/notion";
 
+// revalidate blog posts every hour
+export const revalidate = 60;
 async function Page() {
   const { posts, cursor } = await getBlogPosts();
   return (
