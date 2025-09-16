@@ -17,12 +17,13 @@ function BlogCard({ post }: BlogCardProps) {
   );
 }
 
-async function CardContainer() {
-  const { posts: blogs } = await getBlogPosts();
-
+type CardContainerProps = {
+  posts: BlogEntry[];
+};
+function CardContainer({ posts }: CardContainerProps) {
   return (
     <ul className="w-full py-8 flex flex-col gap-4 relative overflow-hidden">
-      {blogs.map((post) => (
+      {posts.map((post) => (
         <Link key={post.id} href={`/blog/${post.id}`}>
           <BlogCard post={post} />
         </Link>

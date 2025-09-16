@@ -1,6 +1,9 @@
 import CardContainer from "../components/CardContainer";
+import InfiniteCardsFetcher from "../components/InfiniteCardsFetcher";
+import { getBlogPosts } from "../lib/notion";
 
 export async function Page() {
+  const { posts, cursor } = await getBlogPosts();
   return (
     <main className="flex justify-center">
       <div className="flex flex-col items-center">
@@ -10,7 +13,7 @@ export async function Page() {
         <p className="text-center text-xl max-w-[512px] text-gray-text">
           Helpful tools, thoughtful articles and other findings from the web.
         </p>
-        <CardContainer />
+        <InfiniteCardsFetcher initialPosts={posts} />
       </div>
     </main>
   );

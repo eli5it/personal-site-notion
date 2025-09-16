@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { Moon, Sun, Menu, Pencil } from "lucide-react";
 import MobileMenu from "./MobileMenu";
+import { cn } from "../lib/utils";
 
 function NavBar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -18,6 +19,27 @@ function NavBar() {
     const newTheme = resolvedTheme === "dark" ? "light" : "dark";
     setTheme(newTheme);
   };
+
+  // Only render theme-specific content after mounting to prevent hydration mismatch
+  const themeIcon = mounted ? (
+    resolvedTheme === "dark" ? (
+      <Moon />
+    ) : (
+      <Sun />
+    )
+  ) : null;
+  const themeText = mounted
+    ? resolvedTheme === "dark"
+      ? "Light Mode"
+      : "Dark Mode"
+    : "Theme";
+  const desktopThemeIcon = mounted ? (
+    resolvedTheme === "dark" ? (
+      <Sun className="h-4 w-4" />
+    ) : (
+      <Moon className="h-4 w-4" />
+    )
+  ) : null;
 
   return (
     <>
@@ -41,9 +63,8 @@ function NavBar() {
               className="flex flex-col items-center gap-1"
               onClick={toggleTheme}
             >
-              {resolvedTheme === "dark" ? <Moon /> : <Sun />}
-
-              {resolvedTheme === "dark" ? "Light Mode" : "Dark Mode"}
+              {themeIcon}
+              {themeText}
             </button>
           </li>
         </ul>
@@ -75,11 +96,7 @@ function NavBar() {
             onClick={toggleTheme}
             className="rounded-full h-8 w-8 bg-light-primary hover:bg-light-border dark:hover:bg-light-text dark:bg-dark-border flex justify-center items-center"
           >
-            {resolvedTheme === "dark" ? (
-              <Sun className="h-4 w-4" />
-            ) : (
-              <Moon className="h-4 w-4" />
-            )}
+            {desktopThemeIcon}
           </button>
         </header>
       </div>
