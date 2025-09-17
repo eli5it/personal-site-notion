@@ -11,7 +11,7 @@ export default async function Home() {
       <section>
         <div className="flex justify-between items-center">
           <h2 className="font-bold text-2xl border-b-2 border-light-border dark:border-dark-border pb-2">
-            Hello There.
+            Welcome.
           </h2>
           <Link className="flex text-[16px]" href={"/about"}>
             <span>Read More</span>
@@ -19,9 +19,9 @@ export default async function Home() {
           </Link>
         </div>
         <p className="py-8 text-2xl dark:text-off-white font-extralight">
-          I am Elijah. I am a passionate software developer always looking to
-          learn and grow. I like to read books, save bookmarks and to
-          occasionally write articles.
+          This is Elijah. Thanks for visiting my personal site. Feel free to
+          peruse my latest writings, learn more about me, or check out past
+          projects.
         </p>
       </section>
 

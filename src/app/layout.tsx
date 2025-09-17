@@ -19,9 +19,12 @@ export default function RootLayout({
             <div className="max-w-[672px] m-auto py-16 px-6">{children}</div>
             <footer className="hidden md:flex justify-center">
               <div className="w-full max-w-[672px] flex justify-between px-20 mb-8 text-sm text-gray-text ">
-                <Link className="hover:text-dark-border" href={"/"}>
+                <a
+                  className="hover:text-dark-border"
+                  href={"mailto:eli.davis1104@example.com"}
+                >
                   Contact
-                </Link>
+                </a>
                 <Link className="hover:text-dark-border" href={"/"}>
                   Repository
                 </Link>
