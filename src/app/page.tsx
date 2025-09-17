@@ -30,7 +30,7 @@ export default async function Home() {
           <h2 className="font-bold text-2xl border-b-2 border-light-border dark:border-dark-border pb-2">
             Latest Posts
           </h2>
-          <Link className="flex text-[16px]" href={"/about"}>
+          <Link className="flex text-[16px]" href={"/blog"}>
             <span>Read More</span>
             <ArrowUpRight></ArrowUpRight>
           </Link>
