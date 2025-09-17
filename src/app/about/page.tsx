@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Page() {
   const likes = [
     "TypeScript",
@@ -35,17 +37,31 @@ export default function Page() {
           Learn more about me
         </p>
         <p className="my-7 text-lg text-dark-border dark:text-offwhite">
-          I am an all-around curious person who can not get enough of exploring
-          new ideas and asking lots of questions.
+          I am a passionate programmer always looking to learning something new.
+          Despite this, I'm trying to not to get wrapped in the bleeding-edge
+          technology-of-the week in frontend land.
         </p>
         <p className="my-7 text-lg text-dark-border dark:text-offwhite">
-          In my free time, you can usually find me reading books, cooking,
-          playing board games, outside with the bicycle or simply spending time
-          with those closest to me.
+          In my free time I enjoy following baseball, browsing reddit, and
+          playing{" "}
+          <a
+            className="text-darker-blue hover:text-blue-800"
+            href="https://youtu.be/eZTSebZwY3A?si=YoSPlQSiQ4ipC6XX"
+          >
+            Super Smash Brothers Melee
+          </a>
+          .
         </p>
         <p className="my-7 text-lg text-dark-border dark:text-offwhite">
-          I am an advocate for working and learning in public, which I am doing
-          on and off on on LinkedIn, X, Bluesky and my YouTube channel.
+          I'm currently aiming to sharpen my skills in all things web
+          development, using resources linked on{" "}
+          <a
+            className="text-darker-blue hover:text-blue-800"
+            href="https://roadmap.sh/"
+          >
+            roadmap.sh
+          </a>{" "}
+          and documenting the process here.
         </p>
       </section>
 
@@ -54,39 +70,48 @@ export default function Page() {
           Education
         </h2>
         <ul className="py-7">
-          <li className="flex gap-5 mb-7">
-            <div className="min-w-[48px] w-[48px] min-h-[48px] h-[48px] rounded-xl bg-gray-500 mt-1.5"></div>
+          <li className="flex gap-5 mb-7 items-start">
+            <Image
+              className="flex-l"
+              alt="Cornell University logo"
+              src={"/cornell-logo.png"}
+              width={48}
+              height={48}
+            ></Image>
             <div>
-              <p className="font-bold text-xl mb-2"> Oregon State University</p>
-              <p className="text-[16px] text-dark-border dark:text-offwhite">
-                Build Facilitator School, an educational platform designed to
-                help people run more effective meetings and workshops. My main
-                focus was on the website, marketing, and content. I grew the
-                site from zero to 200,000 visitors a year, led the creation of
-                resources, videos, and training materials, and delivered over
-                nine training cohorts for participants from global organizations
-                like NASA, Apple, Disney, and UNICEF.
+              <p className="font-bold text-xl mb-2"> Cornell University</p>
+              <p className="text-[16px] text-light-text dark:text-offwhite">
+                Graduated with an appreciation for law, economics, and
+                organizational behavior, while also branching into computer
+                science. In my later semesters, I explored courses in functional
+                programming, object-oriented programming, data structures, and
+                discrete structures. It was here that I got to experience the
+                joy of programming in OCaml.
               </p>
-              <p>
-                Co-Founder (Design, Marketing, Content) :: June 2020 - Jan 2025
+              <p className="text-light-gray-text">
+                B.S., Industrial and Labor Relations :: August 2020 - June 2023
               </p>
             </div>
           </li>
-          <li className="flex gap-5">
-            <div className="min-w-[48px] w-[48px] min-h-[48px] h-[48px] rounded-xl bg-gray-500 mt-1.5"></div>
+          <li className="flex gap-5 items-start">
+            <Image
+              className="flex-l rounded-3xl"
+              alt="Cornell University logo"
+              src={"/osu-logo.png"}
+              width={48}
+              height={48}
+            ></Image>
             <div>
               <p className="font-bold text-xl mb-2"> Oregon State University</p>
-              <p className="text-[16px] text-dark-border dark:text-offwhite">
-                Build Facilitator School, an educational platform designed to
-                help people run more effective meetings and workshops. My main
-                focus was on the website, marketing, and content. I grew the
-                site from zero to 200,000 visitors a year, led the creation of
-                resources, videos, and training materials, and delivered over
-                nine training cohorts for participants from global organizations
-                like NASA, Apple, Disney, and UNICEF.
+              <p className="text-[16px] text-light-text dark:text-offwhite">
+                Completed an accelerated computer science degree designed for
+                students with prior undergraduate study. Built on my earlier
+                coursework, and self study with a full range of CS coursework,
+                including algorithms, operating systems, databases, software
+                engineering, and web development.
               </p>
-              <p>
-                Co-Founder (Design, Marketing, Content) :: June 2020 - Jan 2025
+              <p className="text-light-gray-text">
+                B.S., Computer Science :: August 2023 - September 2025
               </p>
             </div>
           </li>
@@ -124,18 +149,26 @@ export default function Page() {
       </section>
       <section>
         <h2 className="text-4xl font-bold border-b-2 border-b-gray-border dark:border-b-dark-border pb-2 mb-2 inline-block">
-          About This Page
+          About This Site
         </h2>
         <p className="text-lg text-dark-border dark:text-offwhite mb-7">
-          Everything you see here I have designed and built myself. The website
-          is using React and Chakra UI as a design system. The pages are
-          generated by NextJS and are hosted on Vercel.
+          This site was built using Next.js, utilzing Tailwind for styling. If
+          you'd like to poke around the source code, feel free to check out the
+          repository{" "}
+          <a className="text-darker-blue hover:text-blue-800" href="/">
+            here
+          </a>
+          .
         </p>
         <p className="text-lg text-dark-border dark:text-offwhite my-7">
-          The content for the website, such as articles, books and bookmarks are
-          stored on Airtable and then pulled in through their API endpoint. If
-          you are curious, you can explore the code for this website on my
-          Github.
+          I write the blog posts for this website using Notion, and utilize{" "}
+          <a
+            className="text-darker-blue hover:text-blue-800"
+            href="https://github.com/NotionX/react-notion-x"
+          >
+            react-notion-x
+          </a>{" "}
+          to render them to your screen.
         </p>
       </section>
     </>
