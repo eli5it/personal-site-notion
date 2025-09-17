@@ -12,7 +12,7 @@ async function Page() {
           Blog
         </h1>
         <p className="text-center text-xl max-w-[512px] text-gray-text">
-          Thoughts and takeaways from projects, experiments, and learning."
+          Thoughts and takeaways from projects, experiments, and learning.
         </p>
         <InfiniteCardsFetcher cursor={cursor} initialPosts={posts} />
       </div>

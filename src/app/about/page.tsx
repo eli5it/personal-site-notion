@@ -37,8 +37,8 @@ export default function Page() {
           Learn more about me
         </p>
         <p className="my-7 text-lg text-dark-border dark:text-offwhite">
-          I am a passionate programmer always looking to learning something new.
-          Despite this, I'm trying to not to get wrapped in the bleeding-edge
+          I am a passionate programmer always looking to learning something new
+          while doing my best to avoid getting wrapped up in the bleeding-edge
           technology-of-the week in frontend land.
         </p>
         <p className="my-7 text-lg text-dark-border dark:text-offwhite">
@@ -53,7 +53,7 @@ export default function Page() {
           .
         </p>
         <p className="my-7 text-lg text-dark-border dark:text-offwhite">
-          I'm currently aiming to sharpen my skills in all things web
+          I{"'"}m currently aiming to sharpen my skills in all things web
           development, using resources linked on{" "}
           <a
             className="text-darker-blue hover:text-blue-800"
@@ -153,9 +153,12 @@ export default function Page() {
         </h2>
         <p className="text-lg text-dark-border dark:text-offwhite mb-7">
           This site was built using Next.js, utilzing Tailwind for styling. If
-          you'd like to poke around the source code, feel free to check out the
-          repository{" "}
-          <a className="text-darker-blue hover:text-blue-800" href="/">
+          you{"'"}d like to poke around the source code, feel free to check out
+          the repository{" "}
+          <a
+            className="text-darker-blue hover:text-blue-800"
+            href="https://github.com/eli5it/personal-site-notion"
+          >
             here
           </a>
           .
