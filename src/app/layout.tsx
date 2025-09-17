@@ -3,7 +3,6 @@ import { ThemeProvider } from "next-themes";
 import "react-notion-x/src/styles.css";
 import "prismjs/themes/prism-tomorrow.css";
 import NavBar from "./components/NavBar";
-import Link from "next/link";
 import QueryClientProvider from "@/app/providers/QueryClientProvider";
 export default function RootLayout({
   children,
@@ -25,9 +24,12 @@ export default function RootLayout({
                 >
                   Contact
                 </a>
-                <Link className="hover:text-dark-border" href={"/"}>
+                <a
+                  className="hover:text-dark-border"
+                  href={"https://github.com/eli5it/personal-site-notion"}
+                >
                   Repository
-                </Link>
+                </a>
               </div>
             </footer>
           </QueryClientProvider>

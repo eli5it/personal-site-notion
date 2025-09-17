@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
-import { Moon, Sun, Menu, Pencil } from "lucide-react";
+import { Moon, Sun, Menu, Pencil, Code } from "lucide-react";
 import MobileMenu from "./MobileMenu";
 
 function NavBar() {
@@ -70,7 +70,12 @@ function NavBar() {
       </div>
       <div className="justify-center w-full bg-white dark:bg-dark-secondary border-b border-light-border dark:border-dark-border hidden md:flex">
         <header className="sticky top-0 h-16 flex items-center justify-around w-full max-w-[650px]">
-          <Link href={"/"} className="rounded-full h-8 w-8 bg-gray-300"></Link>
+          <Link
+            href={"/"}
+            className="rounded-full h-8 w-8 bg-black dark:bg-inherit dark:hover:bg-dark-border flex justify-center items-center px-1 py-1"
+          >
+            <Code className="stroke-white"></Code>
+          </Link>
           <nav>
             <Link
               className="hover:bg-light-primary dark:hover:bg-dark-border  px-4 py-2 rounded-xl"
